@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  
+  --color-accent: #0984e3;
+  --color-primary: #2d3436;
+  --color-secondary: #636e72;
+  --color-sidebar-bg: #f8f9fa;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-primary bg-white scroll-smooth;
+  }
+  
+  .serif {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply block py-2 text-secondary transition-colors font-medium uppercase tracking-wider text-[0.85rem];
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    @apply text-accent;
+  }
+
+  .section-title {
+    @apply text-4xl mb-12 relative inline-block font-serif;
+  }
+
+  .section-title::after {
+    @apply content-[''] absolute -bottom-2 left-0 w-10 h-[3px] bg-accent;
+  }
+
+  .tag {
+    @apply text-[0.7rem] px-2.5 py-1 rounded-full bg-[#f1f2f6] text-secondary mr-2 mb-2 inline-block;
+  }
+
+  /* Markdown Body Styling */
+  .markdown-body {
+    @apply text-secondary leading-relaxed;
+  }
+
+  .markdown-body h1 {
+    @apply text-3xl font-bold text-primary mb-6 mt-8 border-b border-gray-100 pb-2;
+  }
+
+  .markdown-body h2 {
+    @apply text-2xl font-bold text-primary mb-4 mt-10;
+  }
+
+  .markdown-body h3 {
+    @apply text-xl font-bold text-primary mb-3 mt-6;
+  }
+
+  .markdown-body p {
+    @apply mb-4;
+  }
+
+  .markdown-body ul {
+    @apply list-disc list-inside mb-6 space-y-2;
+  }
+
+  .markdown-body ol {
+    @apply list-decimal list-inside mb-6 space-y-2;
+  }
+
+  .markdown-body code {
+    @apply bg-gray-100 px-1.5 py-0.5 rounded text-accent font-mono text-sm;
+  }
+
+  .markdown-body pre {
+    @apply bg-gray-900 p-6 rounded-xl my-6 overflow-x-auto;
+  }
+
+  .markdown-body pre code {
+    @apply bg-transparent p-0 text-gray-100 block;
+  }
+
+  .markdown-body a {
+    @apply text-accent hover:underline decoration-accent/30 underline-offset-4;
+  }
+
+  .markdown-body blockquote {
+    @apply border-l-4 border-accent/20 pl-4 py-1 italic text-secondary/80 bg-accent/5 rounded-r-lg mb-6;
+  }
+}
